@@ -1,0 +1,14 @@
+[package]
+name = "ch7_crates"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+
+[[bin]]
+name = "p1_bin_1"
+path = "src/p1_crate_and_package/p1_bin_1.rs"
+
+[[bin]]
+name = "p1_bin_2"
+path = "src/p1_crate_and_package/p1_bin_2.rs"
