@@ -29,7 +29,7 @@ fn main() {
 
                     let result = vec.iter().map(|(d, e)| format!("{}\t{}", d, e));
 
-                    std::iter::once(format!("All Employyers"))
+                    std::iter::once(format!("All Employees"))
                         .chain(result)
                         .collect::<Vec<String>>()
                 }
@@ -44,7 +44,7 @@ fn main() {
 
                     let result = vec.iter().map(|(d, e)| format!("{}\t{}", d, e));
 
-                    std::iter::once(format!("Employyers from {}", department))
+                    std::iter::once(format!("Employees from {}", department))
                         .chain(result)
                         .collect::<Vec<String>>()
                 }
@@ -57,7 +57,7 @@ fn main() {
 
                 ["fire", employee] => match db.remove(&employee.to_string()) {
                     Some(department) => {
-                        vec![format!("{} fired from P{}", employee, department)]
+                        vec![format!("{} fired from {}", employee, department)]
                     }
                     None => {
                         vec![format!("Employee not found")]
