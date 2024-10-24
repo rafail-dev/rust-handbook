@@ -6,10 +6,16 @@ use ch12_minigrep::Config;
 // $ IGNORE_CASE=1 cargo run -- to poem.txt
 
 fn main() {
-    let args: Vec<String> = env::args().collect();
+    // prev
+    // let args: Vec<String> = env::args().collect();
 
-    let config = Config::build(&args).unwrap_or_else(|err| {
-        eprintln!("Problem parsing arguments: {}", err);
+    // let config = Config::build(&args).unwrap_or_else(|err| {
+    //     eprintln!("Problem parsing arguments: {}", err);
+    //     process::exit(1);
+    // });
+
+    let config = Config::build(env::args()).unwrap_or_else(|err| {
+        eprintln!("Problem parsing arguments: {err}");
         process::exit(1);
     });
 
