@@ -1,0 +1,11 @@
+[package]
+name = "ch14_cargo_and_crates"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+
+[profile.my]
+inherits = "release"
+opt-level = 1
+debug = true
