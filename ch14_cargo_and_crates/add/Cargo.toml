@@ -1,0 +1,7 @@
+[workspace]
+
+members = [
+    "adder",
+    "add_one",
+    "first_step"
+]
