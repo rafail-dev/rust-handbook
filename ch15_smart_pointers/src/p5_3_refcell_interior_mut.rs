@@ -5,8 +5,13 @@ use std::cell::RefCell;
 #[derive(Debug)]
 struct MyStruct(RefCell<u8>);
 
+#[derive(Debug)]
+struct MyStruct2 {
+    x: RefCell<u8>,
+}
+
 trait MyTrait {
-    fn declared_as_immutable(&self) -> u8;
+    fn declared_as_immutable(&self) -> ();
 }
 
 impl MyStruct {
@@ -16,15 +21,30 @@ impl MyStruct {
 }
 
 impl MyTrait for MyStruct {
-    fn declared_as_immutable(&self) -> u8 {
+    fn declared_as_immutable(&self) -> () {
         let mut r = self.0.borrow_mut();
         *r += 1;
-        *r
     }
 }
 
+impl MyStruct2 {
+    fn new(x: u8) -> MyStruct2 {
+        MyStruct2 { x: RefCell::new(x) }
+    }
+}
+
+impl MyTrait for MyStruct2 {
+    fn declared_as_immutable(&self) -> () {
+        *self.x.borrow_mut() += 4;
+    }
+}
+
+trait MyTrait2<T> {
+    fn f(v: &T) -> u8;
+}
+
 pub fn main() {
-    let v = MyStruct::new(1);
+    let v = MyStruct2::new(1);
     let r = v.declared_as_immutable();
 
     // MyStruct(RefCell { value: 2 })

@@ -4,6 +4,8 @@ mod p4_rc;
 mod p5_1_refcell_runtime;
 mod p5_2_refcell_list;
 mod p5_3_refcell_interior_mut;
-mod p6_weak;
+mod p6_1_cycle;
+mod p6_2_weak;
+mod p6_3_graph;
 
 fn main() {}
