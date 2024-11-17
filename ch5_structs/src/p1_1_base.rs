@@ -1,22 +1,25 @@
+#![allow(dead_code, unused)]
+
 struct User {
-    _active: bool,
-    _username: String,
+    active: bool,
+    username: String,
     email: String,
-    _sign_in_count: u64,
+    sign_in_count: u64,
 }
 
 pub fn main() {
-    let user1 = build_user(
-        String::from("someone@example.com"),
+    let user = build_user(
         String::from("someusername123"),
+        String::from("someone@example.com"),
     );
 
-    let updated_user1 = User {
-        _active: true,
-        ..user1
+    let updated_user = User {
+        active: true,
+        ..user
     };
 
-    // println!("{}", user1.email);
+    // println!("{}", user.email);
+
     // borrow of moved value: `user1.email`
     // move occurs because `user1.email` has type `String`,
     // which does not implement the `Copy` traitrustc
@@ -27,14 +30,14 @@ pub fn main() {
     // тк остальные поля реализуют типаж Copy
     // и копируются в стеке
 
-    println!("{}", updated_user1.email);
+    println!("{}", updated_user.email);
 }
 
-fn build_user(_username: String, email: String) -> User {
+fn build_user(username: String, email: String) -> User {
     User {
-        _active: false,
-        _username, // as username: username
+        active: false,
+        username, // as username: username
         email,
-        _sign_in_count: 0,
+        sign_in_count: 0,
     }
 }
