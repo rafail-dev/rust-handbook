@@ -1,4 +1,5 @@
-struct _A {
+#![allow(dead_code, unused)]
+struct A {
     // expected named lifetime parameter
     // s: &str,
     // ссылка на чужую строку
@@ -6,7 +7,7 @@ struct _A {
 }
 
 pub fn main() {
-    // let _a1 = _A { s: "s" };
+    // let a1 = A { s: "s" };
 
     // ошибка из-за того, что нет доказательств того,
     // что структура ссылается на данные, которые

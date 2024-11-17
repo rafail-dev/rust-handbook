@@ -1,3 +1,5 @@
+#![allow(dead_code, unused)]
+
 struct Circle {
     radius: u32,
 }
@@ -7,6 +9,10 @@ struct Circle {
 impl Circle {
     fn new(radius: u32) -> Circle {
         Circle { radius }
+    }
+
+    fn not_self(a: u8, b: u8) {
+        println!("{} {}", a, b);
     }
 }
 
@@ -20,6 +26,10 @@ impl Circle {
 
 fn main() {
     let circle1 = Circle::new(30);
+
+    // found the following associated functions; to be used as methods, functions must have a `self` parameter
+    // circle1.not_self(1,1);
+    Circle::not_self(1, 1);
 
     println!("Perimeter of a Circle 1 - {}", circle1.perimeter());
 }

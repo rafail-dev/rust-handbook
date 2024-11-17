@@ -1,9 +1,8 @@
+#![allow(dead_code, unused)]
+
 #[derive(Debug)]
 struct A {
-    #[allow(dead_code)]
     a: String,
-
-    #[allow(dead_code)]
     b: u32,
 }
 

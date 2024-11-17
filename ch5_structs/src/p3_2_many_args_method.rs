@@ -1,3 +1,5 @@
+#![allow(dead_code, unused)]
+
 struct Line {
     start: i64,
     end: i64,
