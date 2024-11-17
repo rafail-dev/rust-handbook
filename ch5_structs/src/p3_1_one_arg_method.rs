@@ -1,3 +1,5 @@
+#![allow(dead_code, unused)]
+
 #[derive(Debug)]
 struct A {
     a: u64,
@@ -25,22 +27,22 @@ impl A {
 }
 
 fn main() {
-    let mut a1 = A { a: 1, b: 1 };
+    let mut a = A { a: 1, b: 1 };
 
     // f1 только читает структуру
-    let r = a1.f1();
+    let r = a.f1();
     println!("r is {}", r);
-    println!("a1 is {:#?}", a1);
+    println!("a1 is {:#?}", a);
     println!();
 
     // f2 мутирует структуру
-    a1.f2();
+    a.f2();
     println!("r is {}", r);
-    println!("a1 is {:#?}", a1);
+    println!("a1 is {:#?}", a);
     println!();
 
     // f3 забирает во владение структуру
-    let r = a1.f3();
+    let r = a.f3();
     println!("r is {}", r);
     // value borrowed here after move
     // println!("{:#?}", a1)
