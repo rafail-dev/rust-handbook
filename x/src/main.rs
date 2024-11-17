@@ -1,3 +1,4 @@
+#![allow(dead_code,unused)]
 fn foo_u8(v: u8) -> u8 {
     v
 }
