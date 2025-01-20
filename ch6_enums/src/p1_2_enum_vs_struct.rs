@@ -1,8 +1,9 @@
+#![allow(dead_code, unused)]
 enum Message {
     Quit,
-    Move { _x: i32, _y: i32 },
-    _Write(String),
-    _ChangeColor(i32, i32, i32),
+    Move { x: i32, y: i32 },
+    Write(String),
+    ChangeColor(i32, i32, i32),
 }
 
 impl Message {
@@ -14,22 +15,10 @@ impl Message {
     }
 }
 
-// или
-
-struct _QuitMesage;
-struct _MoveMessage {
-    x: i32,
-    y: i32,
-}
-
-struct _WriteMesage(String);
-
-struct _ChangeColorMessage(i32, i32, i32);
-
 pub fn main() {
     let message1 = Message::Quit;
 
-    let message2 = Message::Move { _x: 1, _y: 2 };
+    let message2 = Message::Move { x: 1, y: 2 };
 
     println!(
         "Message 1 - {}; Message 2 - {}",
@@ -37,6 +26,3 @@ pub fn main() {
         message2.call()
     );
 }
-
-// нельзя сделать также с рядом структур
-fn _f1(_: Message) {}

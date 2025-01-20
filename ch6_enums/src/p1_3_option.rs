@@ -1,3 +1,4 @@
+#![allow(dead_code, unused)]
 // уже включено в Prelude
 // enum Option<T> {
 //     None,
@@ -13,16 +14,16 @@ fn add(a: Option<i32>, b: Option<i32>) -> Option<i32> {
 
 pub fn main() {
     // compiler can infer type
-    let _some_number = Some(1);
-    let _some_char = Some('a');
+    let some_number = Some(1);
+    let some_char = Some('a');
 
-    // compiler can't infer type
-    let mut _absent_number: Option<i32> = None;
-    _absent_number = Some(1);
+    // compiler can't infer type without using
+    let mut absent_number = None;
+    absent_number = Some(1);
 
-    // Нельзя сложить Option<i32> с Option<i32> или c i32,
-    // компилятору необходимл доказать, что значение есть
-    // let sum = _some_number + _absent_number;
-    let result = add(_some_number, _absent_number);
+    // Cannot add Option<i32> with Option<i32> or with i32,
+    // needs to prove that the values exists
+    // let sum = some_number + absent_number;
+    let result = add(some_number, absent_number);
     println!("{:?}", result)
 }

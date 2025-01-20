@@ -1,12 +1,13 @@
+#![allow(dead_code, unused)]
+
 enum UsState {
     Alabama,
-    _Alaska,
-    // --snip--
+    Alaska,
 }
 
 enum Coin {
-    _Penny,
-    _Nickel,
+    Penny,
+    Nickel,
     Dime,
     Quarter(UsState),
 }
@@ -14,12 +15,12 @@ enum Coin {
 fn value_in_cents(coin: Coin) -> u8 {
     match coin {
         // каждая ветка возвращает expression
-        Coin::_Penny => 1,
-        Coin::_Nickel => 5,
+        Coin::Penny => 1,
+        Coin::Nickel => 5,
         Coin::Dime => 10,
         // при сопоставлении с образцом
         // можно извлекать значения
-        Coin::Quarter(_state) => 25,
+        Coin::Quarter(state) => 25,
     }
 }
 
@@ -34,7 +35,7 @@ fn _incremented_if_one_or_seven(x: i32) -> Option<i32> {
     match x {
         1 => Some(2),
         7 => Some(8),
-        _another_value => None,
+        another_value => None,
         // если значение неважно, то можно использовать _
         // _ => None,
 

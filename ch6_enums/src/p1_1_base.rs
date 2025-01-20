@@ -1,3 +1,4 @@
+#![allow(dead_code, unused)]
 enum IpAddrKind1 {
     V4,
     V6,
@@ -9,7 +10,7 @@ enum IpAddrKind2 {
 
 pub fn main() {
     let ip11 = IpAddrKind1::V4;
-    let _ip12 = IpAddrKind1::V6;
+    let ip12 = IpAddrKind1::V6;
 
     match ip11 {
         IpAddrKind1::V4 => println!("ip11 is v4"),
@@ -17,7 +18,7 @@ pub fn main() {
     }
 
     let ip21: IpAddrKind2 = IpAddrKind2::V4(192, 168, 0, 1);
-    let _ip22: IpAddrKind2 = IpAddrKind2::V6(String::from("::1"));
+    let ip22: IpAddrKind2 = IpAddrKind2::V6(String::from("::1"));
 
     match ip21 {
         IpAddrKind2::V4(a, b, c, d) => println!("ip21 is v4 {}, {}, {}, {}", a, b, c, d),
